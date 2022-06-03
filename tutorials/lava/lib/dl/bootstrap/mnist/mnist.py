@@ -82,7 +82,8 @@ class Network(torch.nn.Module):
         for i, b in enumerate(self.blocks):
             b.export_hdf5(layer.create_group(f'{i}'))
 
-trained_folder = 'Trained'
+current_dir = os.path.dirname(os.path.abspath(__file__))
+trained_folder = os.path.join(current_dir, 'Trained')
 os.makedirs(trained_folder, exist_ok=True)
 
 # device = torch.device('cpu')
